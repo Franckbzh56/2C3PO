@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Welcome to the admin page !
+
+  table
+    thead
+      tr
+        th Id
+        th Dernière connection
+    tbody
+      each connection, i in lastConnections
+        tr
+          td #{connection.id}
+          td #{connection.date}
