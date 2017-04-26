@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var db = require('in-mem');
+var insert = db.insert;
+
 const request = require('request');
 
 /* GET hello world page. */
@@ -66,7 +69,8 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
   if (messageText) {
-
+    const personA = insert('person', {firstname:'Ahmed'});
+console.log(JSON.stringify(personA));
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
