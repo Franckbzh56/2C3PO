@@ -66,7 +66,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
   if (messageText) {
-    {if 'Bonjour'
+    {if messageText = 'Bonjour'
      sendTextMessage(senderID, 'Quoi encore !!! ');
      else
     // If we receive a text message, check to see if it matches a keyword
