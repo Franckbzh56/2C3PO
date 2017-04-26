@@ -66,10 +66,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
   if (messageText) {
-    {if messageText = 'Bonjour'
-     sendTextMessage(senderID, 'Quoi encore !!! ');
-     else
-    // If we receive a text message, check to see if it matches a keyword
+        // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
       case 'generic':
@@ -77,7 +74,7 @@ function receivedMessage(event) {
         break;
       default:
         sendTextMessage(senderID, messageText);
-    }}
+    }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
