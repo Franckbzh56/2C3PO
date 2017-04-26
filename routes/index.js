@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/webhook', function(req, res, next) {
-    console.log(req.query);
+    //console.log(req.query);
     if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === 'plop') {
     console.log("Validating webhook");
@@ -36,7 +36,7 @@ router.post('/webhook', function (req, res) {
         if (event.message) {
           receivedMessage(event);
         } else {
-          console.log("Webhook received unknown event: ", event);
+//          console.log("Webhook received unknown event: ", event);
         }
       });
     });
@@ -59,7 +59,7 @@ function receivedMessage(event) {
   console.log("Received message for user %d and page %d at %d with message:",
     senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
-
+  console.log(JSON.stringify(event.sender));
   var messageId = message.mid;
 
   var messageText = message.text;
