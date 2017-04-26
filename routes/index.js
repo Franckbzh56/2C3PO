@@ -15,10 +15,10 @@ router.get('/webhook', function(req, res, next) {
     //console.log(req.query);
     if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === 'plop') {
-    console.log("Validating webhook");
+    //console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
-    console.error("Failed validation. Make sure the validation tokens match.");
+    //console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);
   }
 });
@@ -59,10 +59,10 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  console.log("Received message for user %d and page %d at %d with message:",
-    senderID, recipientID, timeOfMessage);
-  console.log(JSON.stringify(message));
-  console.log(JSON.stringify(event.sender));
+  //console.log("Received message for user %d and page %d at %d with message:",
+    //senderID, recipientID, timeOfMessage);
+  //console.log(JSON.stringify(message));
+  //console.log(JSON.stringify(event.sender));
   var messageId = message.mid;
 
   var messageText = message.text;
@@ -115,12 +115,12 @@ function callSendAPI(messageData) {
       var recipientId = body.recipient_id;
       var messageId = body.message_id;
 
-      console.log("Successfully sent generic message with id %s to recipient %s",
-        messageId, recipientId);
+      //console.log("Successfully sent generic message with id %s to recipient %s",
+      //  messageId, recipientId);
     } else {
       console.error("Unable to send message.");
-      console.error(response);
-      console.error(error);
+      //console.error(response);
+      //console.error(error);
     }
   });
 }
