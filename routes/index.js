@@ -68,9 +68,10 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
+  
   if (messageText) {
-    const personA = insert('person', {firstname:'Ahmed'});
-console.log(JSON.stringify(personA));
+    const personA = insert('messages', {id: senderID, date: message.date, message: messageText});
+
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
