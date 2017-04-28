@@ -6,6 +6,8 @@ var insert = db.insert;
 
 const request = require('request');
 
+var modeService = require('../server/modeservice');
+
 /* GET hello world page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -68,7 +70,7 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
-  
+
   if (messageText) {
     const personA = insert('messages', {id: senderID, date: message.date, message: messageText});
 
@@ -77,10 +79,12 @@ function receivedMessage(event) {
     switch (messageText) {
       case 'generic':
         sendGenericMessage(senderID);
-        break;
+      break;
 
       default:
-        sendTextMessage(senderID, messageText);
+        if (modeService.getMode() == 'OFF') {
+          sendTextMessage(senderID, messageText);
+        }
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
