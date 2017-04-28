@@ -3,15 +3,11 @@ extends layout
 block content
   h1 Welcome to the admin page !
 
-  table
-    thead
-      tr
-        th Id
-        th Dernière connection
-    tbody
-      each connection, i in lastConnections
-        tr
-          td #{connection.id}
-          td #{connection.date}
+  style.
+    .toggle{width:200px}
 
-   input(id='toogle',data-toggle='toggle', data-on='ON (Humain répond)', data-off='OFF (Bot répond)', type='checkbox')
+
+  if varMode == "ON"
+    input(checked, id='toogle',data-toggle='toggle', data-on='ON (Humain répond)', data-off='OFF (Bot répond)', type='checkbox')
+  else
+    input(id='toogle',data-toggle='toggle', data-on='ON (Humain répond)', data-off='OFF (Bot répond)', type='checkbox')
