@@ -84,8 +84,7 @@ function receivedMessage(event) {
       default:
         if (modeService.getMode() == 'OFF') {
   //        sendTextMessage(senderID, messageText);
-            sendTextMessage(senderID, `Hello !
-             Merci pour ton message. Malheureusement, personne n'est disponible pour te répondre maintenant. Nous reviendrons vers toi au plus tôt ! En attendant, tu peux peut être me donner ton numéro de téléphone, comme ça je t'appelle direct !
+            sendTextMessage(senderID, `Hello ! Merci pour ton message. Malheureusement, personne n'est disponible pour te répondre maintenant. Nous reviendrons vers toi au plus tôt ! En attendant, tu peux peut être me donner ton numéro de téléphone, comme ça je t'appelle direct !
              @+ !`);
         }
     }
